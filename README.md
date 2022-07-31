@@ -36,3 +36,32 @@ example (provide all four values):
 worm_farm.register_worm_food_water("bucket:bucket_water", 400, "bucket:bucket_empty" , "w")
 
 When the worm farm is right clicked with a bucket of water, it will be filled with 400 units of water/hydration. The player will get an empty bucket back. The "w" flag is so the function knows this is a water registration - bit redundant as I could just check for empty item value, future update maybe.
+
+### Register Worm as drop from Nodes
+worm_farm.register_worm_drop(node_name, rarity)
+
+Lets you register worms as another drop from a node. This wont disturb the existing nodes drops and will increase the max node drops by +1 basically the worms drop for free. The worms will be inserted in the correct order into the node drop table.
+
+example:
+worm_farm.register_worm_drop("default:dirt", 40)
+
+The default dirt nodes drop would now look like this - assuming ethereal is active:
+
+    drop = {
+		max_items = 2,
+		items = {
+			{
+				rarity = 40,
+				items = {
+					"ethereal:worm"
+				}
+			},
+			{
+				items = {
+					"default:dirt"
+				}
+			}
+		}
+	}
+
+
