@@ -71,9 +71,9 @@ minetest.register_node("worm_farm:worm_farm", {
 		-- Adding water check
 		local is_water, water_def = worm_farm.name_group(itemstack:get_name(),"w")
 		if is_water then				
-			cur_water_level = n_meta:get_int("water_level")
-			add_water       = water_def.water			
-			new_water_level = cur_water_level + add_water
+			local cur_water_level = n_meta:get_int("water_level")
+			local add_water       = water_def.water			
+			local new_water_level = cur_water_level + add_water
 			
 			if new_water_level > worm_farm.water_max then
 				new_water_level = worm_farm.water_max
